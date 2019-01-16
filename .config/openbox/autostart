@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This is my start-up script for OpenBox.
+
+# Set screen resolution to 1920x1080x60Hz
+xrandr --newmode "1920x1080x60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+xrandr --addmode HDMI-1 1920x1080x60.00
+xrandr --output HDMI-1 --mode 1920x1080x60.00
+
+# Disable Xorg's built-in screen-saver and start xscreensaver instead
+xset s off
+xset dpms 0 0 0
+xscreensaver -no-splash &	
+
+# Desktop panel and applets
+tint2 &			# Desktop panel
+pnmixer &		# Volume icon
+parcellite &		# Clipboard manager
+nm-applet &		# Network manager applet
+conky &			# CPU, RAM, etc
+
+# Open a maximised terminal window
+xfce4-terminal --maximize &

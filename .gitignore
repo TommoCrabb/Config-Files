@@ -1,0 +1,103 @@
+# Ignore everything by default
+*
+
+# Make exceptions
+
+!.gitconfig
+!.gitignore
+
+# TERMINAL MULTIPLEXERS
+!.screenrc
+!.tmux.conf
+
+# SHELLS
+!.bashrc
+!.zshrc
+!.profile
+!.xsessionrc
+
+# TEXT EDITORS
+!.emacs.d/
+!.emacs.d/init.el
+
+!.config/
+!.local/
+!.local/share/
+
+# TERMINAL EMULATORS
+!.config/xfce4/
+!.config/xfce4/terminal/
+!.config/xfce4/terminal/**
+!.config/lxterminal/
+!.config/lxterminal/**
+
+# DESKTOP
+!.config/conky/
+!.config/conky/**
+!.config/tint2/
+!.config/tint2/**
+!.config/openbox/
+!.config/openbox/**
+!.Xresources
+!.xscreensaver
+!.dmrc
+
+# TRAY
+!.config/pnmixer/
+!.config/pnmixer/**
+!.config/parcellite/
+!.config/parcellite/**
+
+# LOOK & FEEL
+!.config/qt5ct/
+!.config/qt5ct/**
+!.config/Trolltech.conf
+!.gtkrc-2.0
+!.config/gtk-3.0/
+!.config/gtk-3.0/settings.ini
+
+# LIBRARIES: Calibre, Digikam, Mcomix, Clementine # Beets?
+
+# OTHER: Firefox, Thunderbird
+
+#############
+# # RECENT FILES AND OTHER PERSONAL INFO
+# 
+# ## KEEPASSXC
+# !.config/keepassxc/
+# !.config/keepassxc/**
+# 
+# ## VLC
+# !.config/vlc/
+# !.config/vlc/**
+# 
+# ## QUITERSS
+# !.config/QuiteRss/
+# !.config/QuiteRss/**
+# !.local/share/QuiteRss/
+# !.local/share/QuiteRss/**
+# 
+# # KRITA
+# !.config/kritarc
+# !.config/kritadisplayrc
+# !.local/share/krita/
+# !.local/share/krita/**
+# 
+# #############
+# 
+# # FLATPAK
+# !.var/
+# !.var/app/
+# 
+# ## GIMP
+# !.var/app/org.gimp.GIMP/
+# !.var/app/org.gimp.GIMP/config/
+# !.var/app/org.gimp.GIMP/config/GIMP/
+# !.var/app/org.gimp.GIMP/config/GIMP/**
+# 
+# ## INKSCAPE
+# !.var/app/org.inkscape.Inkscape/
+# !.var/app/org.inkscape.Inkscape/config/
+# !.var/app/org.inkscape.Inkscape/config/inkscape/
+# !.var/app/org.inkscape.Inkscape/config/inkscape/**
+# 
