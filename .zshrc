@@ -80,6 +80,7 @@ alias 0-ffd='screen -dmS ffd $MY_BIN/firefox-dev/firefox -no-remote -P dev' # De
 alias 0-thunderbird='screen -dmS thunderbird $MY_BIN/thunderbird/thunderbird' # Thunderbird
 alias 0-blender='echo "Blender is not set up."' # Blender
 alias 0-krita='screen -dmS krita $MY_BIN/appimages/krita-4.1.7-x86_64.appimage' # Krita
+alias 0-inkscape-alpha='screen -dmS krita $MY_BIN/appimages/Inkscape-9dee831-x86_64.AppImage' # Inkscape 1.0 alpha
 # Flatpak
 alias 0-gimp='screen -dmS gimp flatpak run org.gimp.GIMP/x86_64/stable' # GIMP
 alias 0-inkscape='screen -dmS inkscape flatpak run org.inkscape.Inkscape/x86_64/stable' # Inkscape
