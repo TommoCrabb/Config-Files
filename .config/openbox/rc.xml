@@ -178,170 +178,226 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-    <!-- Keybindings for desktop switching -->
-    <keybind key="C-A-Left">
-      <action name="GoToDesktop">
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="C-A-Right">
-      <action name="GoToDesktop">
-        <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="C-A-Up">
-      <action name="GoToDesktop">
-        <to>up</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="C-A-Down">
-      <action name="GoToDesktop">
-        <to>down</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Left">
-      <action name="SendToDesktop">
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Right">
-      <action name="SendToDesktop">
-        <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Up">
-      <action name="SendToDesktop">
-        <to>up</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Down">
-      <action name="SendToDesktop">
-        <to>down</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-F1">
-      <action name="GoToDesktop">
-        <to>1</to>
-      </action>
-    </keybind>
-    <keybind key="W-F2">
-      <action name="GoToDesktop">
-        <to>2</to>
-      </action>
-    </keybind>
-    <keybind key="W-F3">
-      <action name="GoToDesktop">
-        <to>3</to>
-      </action>
-    </keybind>
-    <keybind key="W-F4">
-      <action name="GoToDesktop">
-        <to>4</to>
-      </action>
-    </keybind>
-    <keybind key="W-d">
-      <action name="ToggleShowDesktop"/>
-    </keybind>
-    <!-- Keybindings for windows -->
-    <keybind key="A-F4">
-      <action name="Close"/>
-    </keybind>
-    <keybind key="A-Escape">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
-    </keybind>
-    <keybind key="A-space">
-      <action name="ShowMenu">
-        <menu>client-menu</menu>
-      </action>
-    </keybind>
-    <keybind key="W-Down">
-      <action name="Iconify"/>
-    </keybind>
-    <keybind key="W-Up">
-      <action name="Maximize"/>
-    </keybind>
-    <!-- Take a screenshot of the current window with scrot when Alt+Print are pressed -->
-    <keybind key="A-Print">
+	<!-- application launcher -->
+    <keybind key="C-A-S-e">
       <action name="Execute">
-        <command>scrot -s</command>
+        <command>gmrun</command>
       </action>
     </keybind>
-    <!-- Keybindings for window switching -->
-    <keybind key="A-Tab">
-      <action name="NextWindow">
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="A-S-Tab">
-      <action name="PreviousWindow">
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
+	<!-- quick window switching -->
     <keybind key="C-A-Tab">
-      <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
+      <action name="NextWindow" />
     </keybind>
-    <!-- Keybindings for window switching with the arrow keys -->
-    <keybind key="W-S-Right">
-      <action name="DirectionalCycleWindows">
-        <direction>right</direction>
-      </action>
+    <keybind key="C-A-S-Tab">
+      <action name="PreviousWindow" />
     </keybind>
-    <keybind key="W-S-Left">
-      <action name="DirectionalCycleWindows">
-        <direction>left</direction>
-      </action>
-    </keybind>
-    <keybind key="W-S-Up">
-      <action name="DirectionalCycleWindows">
-        <direction>up</direction>
-      </action>
-    </keybind>
-    <keybind key="W-S-Down">
-      <action name="DirectionalCycleWindows">
-        <direction>down</direction>
-      </action>
-    </keybind>
-    <!-- Keybindings for running applications -->
-    <keybind key="A-F2">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Run Program</name>
-        </startupnotify>
-        <command>bash -ic gmrun</command>
-      </action>
-    </keybind>
-    <!-- Launch scrot when Print is pressed -->
-    <keybind key="Print">
-      <action name="Execute">
-        <command>scrot</command>
-      </action>
+	<!-- window management mode -->
+    <keybind key="C-A-S-Escape" chroot="true">
+      <!-- toggle window decorations: Return -->
+        <keybind key="Return">
+          <action name="ToggleDecorations" />
+        </keybind>
+      <!-- toggle window maximized: space -->
+        <keybind key="space">
+          <action name="ToggleMaximize" />
+        </keybind>
+      <!-- toggle window iconified: BackSpace -->
+        <keybind key="BackSpace">
+          <action name="Iconify" />
+        </keybind>
+      <!-- close window: Delete -->
+        <keybind key="Delete">
+          <action name="Close" />
+        </keybind>
+      <!-- move window: Arrows -->
+        <!-- move window right: Right -->
+          <keybind key="Right">
+            <action name="MoveToEdge">
+              <direction>east</direction>
+            </action>
+          </keybind>	  
+        <!-- move window left: Left -->
+          <keybind key="Left">
+            <action name="MoveToEdge">
+              <direction>west</direction>
+            </action>
+          </keybind>	  
+        <!-- move window up: Up -->
+          <keybind key="Up">
+            <action name="MoveToEdge">
+              <direction>north</direction>
+            </action>
+          </keybind>	  
+        <!-- move window down: Down -->
+          <keybind key="Down">
+            <action name="MoveToEdge">
+              <direction>south</direction>
+            </action>
+          </keybind>
+      <!-- grow window: Ctrl + Arrows -->
+        <!-- grow window up: C-Up -->
+          <keybind key="C-Up">
+            <action name="GrowToEdge">
+              <direction>north</direction>
+            </action>
+          </keybind>	  
+        <!-- grow window down: C-Down -->
+          <keybind key="C-Down">
+            <action name="GrowToEdge">
+              <direction>south</direction>
+            </action>
+          </keybind>	  
+        <!-- grow window left: C-Left -->
+          <keybind key="C-Left">
+            <action name="GrowToEdge">
+              <direction>west</direction>
+            </action>
+          </keybind>	  
+        <!-- grow window right: C-Right -->
+          <keybind key="C-Right">
+            <action name="GrowToEdge">
+              <direction>east</direction>
+            </action>
+          </keybind>	  
+      <!-- shrink window: Alt + Arrows -->
+        <!-- shrink window up: A-Up -->
+          <keybind key="A-Up">
+            <action name="ShrinkToEdge">
+              <direction>north</direction>
+            </action>
+          </keybind>	  
+        <!-- shrink window down: A-Down -->
+          <keybind key="A-Down">
+            <action name="ShrinkToEdge">
+              <direction>south</direction>
+            </action>
+          </keybind>	  
+        <!-- shrink window right: A-Right -->
+          <keybind key="A-Right">
+            <action name="ShrinkToEdge">
+              <direction>east</direction>
+            </action>
+          </keybind>	  
+        <!-- shrink window left: A-Left -->
+          <keybind key="A-Left">
+            <action name="ShrinkToEdge">
+              <direction>west</direction>
+            </action>
+          </keybind>	  
+      <!-- move window to one half of screen: Shift + Arrows -->
+        <!-- move window to right half of screen: S-Right -->
+          <keybind key="S-Right">
+            <action name="MoveResizeTo">
+              <x>-0</x>
+              <y>0</y>
+              <height>100%</height>
+              <width>50%</width>
+            </action>
+          </keybind>	  
+        <!-- move window to left half of screen: S-Left -->
+          <keybind key="S-Left">
+            <action name="MoveResizeTo">
+              <x>0</x>
+              <y>0</y>
+              <height>100%</height>
+              <width>50%</width>
+            </action>
+          </keybind>
+        <!-- move window to top half of screen: S-Up -->
+          <keybind key="S-Up">
+            <action name="MoveResizeTo">
+              <x>0</x>
+              <y>0</y>
+              <width>100%</width>
+              <height>50%</height>
+            </action>
+          </keybind>
+        <!-- move window to bottom half of screen: S-Down -->
+          <keybind key="S-Down">
+            <action name="MoveResizeTo">
+              <x>0</x>
+              <y>-0</y>
+              <width>100%</width>
+              <height>50%</height>
+            </action>
+          </keybind>
+      <!-- move individual edge of window: [t|b|l|r], Arrows -->
+        <!-- move top edge of window -->
+          <keybind key="t" chroot="true">
+            <keybind key="Return">
+              <action name="BreakChroot" />
+            </keybind>
+            <keybind key="Up">
+              <action name="ResizeRelative">
+                <top>5</top>
+              </action>
+            </keybind>
+            <keybind key="Down">
+              <action name="ResizeRelative">
+                <top>-5</top>
+              </action>
+            </keybind>
+          </keybind>	  
+        <!-- move bottom edge of window -->
+          <keybind key="b" chroot="true">
+            <keybind key="Return">
+              <action name="BreakChroot" />
+            </keybind>
+            <keybind key="Up">
+              <action name="ResizeRelative">
+                <bottom>-5</bottom>
+              </action>
+            </keybind>
+            <keybind key="Down">
+              <action name="ResizeRelative">
+                <bottom>5</bottom>
+              </action>
+            </keybind>
+          </keybind>
+        <!-- move left edge of window -->
+          <keybind key="l" chroot="true">
+            <keybind key="Return">
+              <action name="BreakChroot" />
+            </keybind>
+            <keybind key="Left">
+              <action name="ResizeRelative">
+                <left>5</left>
+              </action>
+            </keybind>
+            <keybind key="Right">
+              <action name="ResizeRelative">
+                <left>-5</left>
+              </action>
+            </keybind>
+          </keybind>	         
+        <!-- move right edge of window -->
+          <keybind key="r" chroot="true">
+            <keybind key="Return">
+              <action name="BreakChroot" />
+            </keybind>
+            <keybind key="Right">
+              <action name="ResizeRelative">
+                <right>5</right>
+              </action>
+            </keybind>
+            <keybind key="Left">
+              <action name="ResizeRelative">
+                <right>-5</right>
+              </action>
+            </keybind>
+          </keybind>	           	  
+      <!-- move window interactively: m -->
+        <keybind key="m">
+          <action name="Move" />
+        </keybind>
+      <!-- resize window interactively: r -->
+        <keybind key="s">
+          <action name="Resize" />
+        </keybind>	  
+      <!-- hide all windows: h -->
+        <keybind key="h">
+          <action name="ToggleShowDesktop" />
+        </keybind>
     </keybind>
   </keyboard>
   <mouse>
@@ -357,58 +413,14 @@
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
     <context name="Frame">
-      <mousebind button="A-Left" action="Press">
-        <action name="Focus"/>
-        <action name="Raise"/>
-      </mousebind>
-      <mousebind button="A-Left" action="Click">
-        <action name="Unshade"/>
-      </mousebind>
-      <mousebind button="A-Left" action="Drag">
+      <mousebind button="C-A-S-Left" action="Drag">
         <action name="Move"/>
       </mousebind>
-      <mousebind button="A-Right" action="Press">
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Unshade"/>
-      </mousebind>
-      <mousebind button="A-Right" action="Drag">
+      <mousebind button="C-A-S-Right" action="Drag">
         <action name="Resize"/>
       </mousebind>
-      <mousebind button="A-Middle" action="Press">
-        <action name="Lower"/>
-        <action name="FocusToBottom"/>
-        <action name="Unfocus"/>
-      </mousebind>
-      <mousebind button="A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-S-Up" action="Click">
-        <action name="SendToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-S-Down" action="Click">
-        <action name="SendToDesktop">
-          <to>next</to>
-        </action>
+      <mousebind button="C-A-S-Middle" action="Press">
+        <action name="ToggleMaximize"/>
       </mousebind>
     </context>
     <context name="Titlebar">
@@ -706,100 +718,9 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-    <!--
-  # this is an example with comments through out. use these to make your
-  # own rules, but without the comments of course.
-  # you may use one or more of the name/class/role/title/type rules to specify
-  # windows to match
-
-  <application name="the window's _OB_APP_NAME property (see obxprop)"
-              class="the window's _OB_APP_CLASS property (see obxprop)"
-          groupname="the window's _OB_APP_GROUP_NAME property (see obxprop)"
-         groupclass="the window's _OB_APP_GROUP_CLASS property (see obxprop)"
-               role="the window's _OB_APP_ROLE property (see obxprop)"
-              title="the window's _OB_APP_TITLE property (see obxprop)"
-               type="the window's _OB_APP_TYPE property (see obxprob)..
-                      (if unspecified, then it is 'dialog' for child windows)">
-  # you may set only one of name/class/role/title/type, or you may use more
-  # than one together to restrict your matches.
-
-  # the name, class, role, and title use simple wildcard matching such as those
-  # used by a shell. you can use * to match any characters and ? to match
-  # any single character.
-
-  # the type is one of: normal, dialog, splash, utility, menu, toolbar, dock,
-  #    or desktop
-
-  # when multiple rules match a window, they will all be applied, in the
-  # order that they appear in this list
-
-
-    # each rule element can be left out or set to 'default' to specify to not 
-    # change that attribute of the window
-
-    <decor>yes</decor>
-    # enable or disable window decorations
-
-    <shade>no</shade>
-    # make the window shaded when it appears, or not
-
-    <position force="no">
-      # the position is only used if both an x and y coordinate are provided
-      # (and not set to 'default')
-      # when force is "yes", then the window will be placed here even if it
-      # says you want it placed elsewhere.  this is to override buggy
-      # applications who refuse to behave
-      <x>center</x>
-      # a number like 50, or 'center' to center on screen. use a negative number
-      # to start from the right (or bottom for <y>), ie -50 is 50 pixels from
-      # the right edge (or bottom). use 'default' to specify using value
-      # provided by the application, or chosen by openbox, instead.
-      <y>200</y>
-      <monitor>1</monitor>
-      # specifies the monitor in a xinerama setup.
-      # 1 is the first head, or 'mouse' for wherever the mouse is
-    </position>
-
-    <size>
-      # the size to make the window.
-      <width>20</width>
-      # a number like 20, or 'default' to use the size given by the application.
-      # you can use fractions such as 1/2 or percentages such as 75% in which
-      # case the value is relative to the size of the monitor that the window
-      # appears on.
-      <height>30%</height>
-    </size>
-
-    <focus>yes</focus>
-    # if the window should try be given focus when it appears. if this is set
-    # to yes it doesn't guarantee the window will be given focus. some
-    # restrictions may apply, but Openbox will try to
-
-    <desktop>1</desktop>
-    # 1 is the first desktop, 'all' for all desktops
-
-    <layer>normal</layer>
-    # 'above', 'normal', or 'below'
-
-    <iconic>no</iconic>
-    # make the window iconified when it appears, or not
-
-    <skip_pager>no</skip_pager>
-    # asks to not be shown in pagers
-
-    <skip_taskbar>no</skip_taskbar>
-    # asks to not be shown in taskbars. window cycling actions will also
-    # skip past such windows
-
-    <fullscreen>yes</fullscreen>
-    # make the window in fullscreen mode when it appears
-
-    <maximized>true</maximized>
-    # 'Horizontal', 'Vertical' or boolean (yes/no)
-  </application>
-
-  # end of the example
--->
+    <application name="*">
+      <decor>no</decor>
+    </application>
     <application name="lxterminal">
       <maximized>yes</maximized>
     </application>
@@ -816,6 +737,15 @@
       <maximized>yes</maximized>
     </application>
     <application name="gnome-mpv">
+      <maximized>yes</maximized>
+    </application>
+    <application name="mpv">
+      <maximized>yes</maximized>
+    </application>
+    <application name="qemu-system-x86_64" type="normal">
+      <maximized>yes</maximized>
+    </application>
+    <application name="code" title="Visual Studio Code" type="normal">
       <maximized>yes</maximized>
     </application>
   </applications>

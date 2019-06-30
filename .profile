@@ -19,9 +19,7 @@ fi
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
-fi
+ fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+ /bin/echo -e "=====\n$SHELL\n$0\n$$\n$ZSH_NAME\n$BASH" >> ~/shell
+ ps -p $$ >> ~/shell

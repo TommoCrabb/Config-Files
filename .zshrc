@@ -44,47 +44,43 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 ### MY SHIT ###
 ###############
 
-# Variables
+# TEXT NAVIGATION
+# Getting ZSH to emulate the way BASH moves backwards and forwards in text is easier said than done.
+# There are two main options...
+#
+# 1:
 WORDCHARS=""
-[[ $PATH == *$HOME/bin:* ]] || PATH="${HOME}/bin:$PATH"
+#
+# 2:
+# autoload -U select-word-style
+# select-word-style bash
+#
+# ... Neither of these mimic BASH EXACTLY
+# Will probably have to overwrite the function "forward-word-match"
 
-# Options
-setopt extended_glob interactivecomments
+# PATH VARIABLE
+# Better to set this elsewhere?
+# [[ $PATH == *$HOME/bin:* ]] || PATH="${HOME}/bin:$PATH"
 
-# Command Prompt
+# OPTIONS
+setopt extended_glob interactivecomments no_auto_remove_slash force_float glob_star_short
 
-autoload colors
+# FUNCTIONS
+autoload -Uz zed zargs zcalc regexp-replace run-help
+
+# COMMAND PROMPT
+autoload -Uz colors
 colors
-
 PS1="%{${fg[black]}${bg[blue]}%}%n@%m%#%{${fg[default]}${bg[default]}%} "
 RPS1="%{${fg[blue]}%}%~%{${fg[default]}%}"
 
-alias ls='ls --color=auto'
-
-# zmv, zcp, zln
+# ZMV, ZCP, ZLN
 autoload -Uz zmv
 alias zcp='zmv -C'
 alias zln='zmv -L'
 
 # ALIASES
+alias ls='ls --color=auto'
 
-MY_BIN=$HOME/apps
-
-alias 0-vlc='screen -dmS vlc vlc'
-alias 0-2vlc='screen -dmS vlc vlc' 
-# Different Firefox versions
-alias 0-ffe='screen -dmS ffe $MY_BIN/firefox-esr/firefox -no-remote -P esr' # Extended support release
-alias 0-ffc='screen -dmS ffc $MY_BIN/firefox-cur/firefox -no-remote -P cur' # Current branch
-alias 0-ffd='screen -dmS ffd $MY_BIN/firefox-dev/firefox -no-remote -P dev' # Developer edition
-# Other
-alias 0-thunderbird='screen -dmS thunderbird $MY_BIN/thunderbird/thunderbird' # Thunderbird
-alias 0-blender='echo "Blender is not set up."' # Blender
-alias 0-krita='screen -dmS krita $MY_BIN/appimages/krita-4.1.7-x86_64.appimage' # Krita
-alias 0-inkscape-alpha='screen -dmS krita $MY_BIN/appimages/Inkscape-9dee831-x86_64.AppImage' # Inkscape 1.0 alpha
-# Flatpak
-alias 0-gimp='screen -dmS gimp flatpak run org.gimp.GIMP/x86_64/stable' # GIMP
-alias 0-inkscape='screen -dmS inkscape flatpak run org.inkscape.Inkscape/x86_64/stable' # Inkscape
-alias 0-scribus='screen -dmS scribus flatpak run net.scribus.Scribus/x86_64/stable' # Scribus
-alias 0-mypaint='screen -dmS mypaint flatpak run org.mypaint.MyPaint/x86_64/stable' # MyPaint
-
+# EXTENSIONS
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # Fish-style syntax highlighting

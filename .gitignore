@@ -13,6 +13,7 @@
 # SHELLS
 !.bashrc
 !.zshrc
+!.zshenv
 !.profile
 !.xsessionrc
 
